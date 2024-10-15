@@ -1,0 +1,11 @@
+{% for article in articles %}
+    <div class="article">
+        <h3>{{ article.name }}</h3>
+        <p>{{ article.body | truncatechars:100 }}</p>
+        <a class="btn"
+            href="{% url 'article_detail' article.id %}"
+        >
+            View Details
+        </a>
+    </div>
+{% endfor %}

@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+<main>
+    <h2>All Articles</h2>
+
+    <div class="article-list">
+        {% include "base/partials/list.html" with articles=articles %}
+    </div>
+</main>
+
+<footer>
+    <h2>Add A New Article</h2>
+
+    <form
+        method="post"
+        action="/articles"
+        hx-target=".article-list"
+        hx-push-url="false"
+    >
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Article Name" required>
+        <textarea name="body" placeholder="Article Body" required></textarea>
+        <button class="btn" type="submit">Add Article</button>
+    </form>
+
+</footer>
+{% endblock %}

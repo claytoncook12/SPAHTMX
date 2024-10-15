@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'base/css/styles.css' %}">
+    
+    <title>{{ title }}</title>
+</head>
+<body hx-boost="true" hx-indicator=".loader">
+    <header>
+        <nav>
+            <img src="{% static 'base/shuriken.png' %}">
+            <h1>The Dojo Chronicles</h1>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div hx-history-elt>
+    {% block content%}{% endblock %}
+    </div>
+
+    <!-- Loader Div -->
+    {% include "base/partials/loader.html" %}
+
+    <!-- HTMX scripts -->
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+</body>
+</html>
