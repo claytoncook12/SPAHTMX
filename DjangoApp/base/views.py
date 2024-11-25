@@ -31,6 +31,6 @@ def articles_list(request):
             {'id': random.randint(1,10000000), 'name': name, 'body': body}
         )
 
-        time.sleep(3)
+        time.sleep(0.5)
 
         return render(request, "base/partials/list.html", {'articles': data })
